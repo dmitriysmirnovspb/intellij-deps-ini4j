@@ -118,7 +118,7 @@ public class Config implements Cloneable, Serializable
         return (value == null) ? defaultValue : value;
     }
 
-    public static Config getGloba()
+    public static Config getGlobal()
     {
         return GLOBAL;
     }
