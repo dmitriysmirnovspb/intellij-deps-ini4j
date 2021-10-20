@@ -24,6 +24,7 @@ public class Config implements Cloneable, Serializable
 {
     public static final String KEY_PREFIX = "org.ini4j.config.";
     public static final String PROP_EMPTY_OPTION = "emptyOption";
+    public static final String PROP_TEST = "test";
     public static final String PROP_EMPTY_SECTION = "emptySection";
     public static final String PROP_GLOBAL_SECTION = "globalSection";
     public static final String PROP_GLOBAL_SECTION_NAME = "globalSectionName";
@@ -45,6 +46,7 @@ public class Config implements Cloneable, Serializable
     public static final String PROP_COMMENT = "comment";
     public static final String PROP_HEADER_COMMENT = "headerComment";
     public static final boolean DEFAULT_EMPTY_OPTION = false;
+    public static final boolean DEFAULT_PROP_TEST = false;
     public static final boolean DEFAULT_EMPTY_SECTION = false;
     public static final boolean DEFAULT_GLOBAL_SECTION = false;
     public static final String DEFAULT_GLOBAL_SECTION_NAME = "?";
@@ -88,6 +90,7 @@ public class Config implements Cloneable, Serializable
     private boolean _strictOperator;
     private boolean _tree;
     private boolean _unnamedSection;
+    private boolean _proptest;
 
     public Config()
     {
@@ -386,6 +389,7 @@ public class Config implements Cloneable, Serializable
         _fileEncoding = getCharset(PROP_FILE_ENCODING, DEFAULT_FILE_ENCODING);
         _comment = getBoolean(PROP_COMMENT, DEFAULT_COMMENT);
         _headerComment = getBoolean(PROP_HEADER_COMMENT, DEFAULT_HEADER_COMMENT);
+        _proptest = getBoolean(PROP_TEST, DEFAULT_PROP_TEST);
     }
 
     private boolean getBoolean(String name, boolean defaultValue)
