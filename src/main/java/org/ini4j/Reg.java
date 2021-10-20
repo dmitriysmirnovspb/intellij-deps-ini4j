@@ -159,7 +159,7 @@ public class Reg extends BasicRegistry implements Registry, Persistable, Configu
 
         if (!buff.toString().equals(getVersion()))
         {
-            throw new InvalidFileFormatException("Unsupported version: " + buff.toString());
+            throw new InvalidFileFormatException("Unsupported version: " + buff);
         }
 
         IniParser.newInstance(getConfig()).parse(input, newBuilder());

@@ -20,8 +20,7 @@ import org.junit.Test;
 
 import java.nio.charset.Charset;
 
-public class ConfigTest extends Ini4jCase
-{
+public class ConfigTest {
     @Test public void testDefaults()
     {
         Config def = newDefaultConfig();
