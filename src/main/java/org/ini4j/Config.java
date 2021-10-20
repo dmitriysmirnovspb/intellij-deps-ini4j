@@ -23,6 +23,7 @@ import java.nio.charset.Charset;
 public class Config implements Cloneable, Serializable
 {
     public static final String KEY_PREFIX = "org.ini4j.config.";
+    public static final String PROP_DEMO = "vcs.demo.";
     public static final String PROP_EMPTY_OPTION = "emptyOption";
     public static final String PROP_EMPTY_SECTION = "emptySection";
     public static final String PROP_GLOBAL_SECTION = "globalSection";
@@ -44,6 +45,7 @@ public class Config implements Cloneable, Serializable
     public static final String PROP_LINE_SEPARATOR = "lineSeparator";
     public static final String PROP_COMMENT = "comment";
     public static final String PROP_HEADER_COMMENT = "headerComment";
+    public static final boolean DEFAULT_PROP_DEMO = false;
     public static final boolean DEFAULT_EMPTY_OPTION = false;
     public static final boolean DEFAULT_EMPTY_SECTION = false;
     public static final boolean DEFAULT_GLOBAL_SECTION = false;
@@ -88,6 +90,7 @@ public class Config implements Cloneable, Serializable
     private boolean _strictOperator;
     private boolean _tree;
     private boolean _unnamedSection;
+    private boolean _isDemo;
 
     public Config()
     {
@@ -234,6 +237,14 @@ public class Config implements Cloneable, Serializable
     public void setLineSeparator(String value)
     {
         _lineSeparator = value;
+    }
+
+    private boolean isDemo() {
+        return _isDemo;
+    }
+
+    public void setDemo(Boolean value) {
+        _isDemo = value;
     }
 
     public void setLowerCaseOption(boolean value)
@@ -386,6 +397,7 @@ public class Config implements Cloneable, Serializable
         _fileEncoding = getCharset(PROP_FILE_ENCODING, DEFAULT_FILE_ENCODING);
         _comment = getBoolean(PROP_COMMENT, DEFAULT_COMMENT);
         _headerComment = getBoolean(PROP_HEADER_COMMENT, DEFAULT_HEADER_COMMENT);
+        _isDemo = getBoolean(PROP_DEMO, DEFAULT_PROP_DEMO);
     }
 
     private boolean getBoolean(String name, boolean defaultValue)
